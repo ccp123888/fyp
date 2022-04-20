@@ -1,0 +1,51 @@
+environment_config:
+  # Space setting
+  num_agent: 6
+  num_task: 2
+  observation_history_length: 5
+
+  # Data quality
+  random_quality_weights_bound: [1 ,7]
+  quality_weights: [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]]
+
+  # Budgets
+  task_budget: 30
+  time_budget: 25
+
+agent_config:
+  action_size: 1
+  observation_size: 2
+  mu_cost: 0.05
+
+train_config:
+  # Game setting
+  num_episode: 30
+  max_time_steps: 30
+  update_per_steps: 2
+
+  # Replay buffer (for prioritized replay buffer, the buffer size must be powers of 2)
+  buffer_size: 131072
+  buffer_mode: 0  # 0 for random ER, 1 for prioritized ER
+
+  # Network update
+  mini_batch_size: 128
+  actor_learning_rate: 0.001
+  critic_learning_rate: 0.001
+  soft_update_tau: 0.01
+  discount_gamma: 0.1
+
+  epsilon: 0.01
+
+  # PER
+  alpha: 0.4
+  beta: 0.6
+  beta_increment_per_sampling: 0.005
+
+  # Initial random noise
+  noise_coefficient: 2.0
+  noise_decay_rate: 0.96
+
+
+
+
+
